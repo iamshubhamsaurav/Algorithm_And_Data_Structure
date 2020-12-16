@@ -72,4 +72,33 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    // get(index) {
+    //     if (index < 0 || index >= this.length) return null;
+    //     let currentNode = this.head;
+    //     for (let i = 0; i <= index; i++) {
+    //         currentNode = currentNode.next;
+    //     }
+    //     return currentNode;
+    // }
+
+    // Better solution: Previous one has issue with the tail node
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let currentNode = this.head;
+        while(counter != index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return currentNode;
+    }
 }
+
+let list = new SinglyLinkedList();
+list.push("1");
+list.push("2");
+list.push("3");
+list.push("4");
+// console.log(list);
+console.log(list.get(3));
