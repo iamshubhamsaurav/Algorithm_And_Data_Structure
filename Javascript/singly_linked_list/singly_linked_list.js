@@ -93,6 +93,15 @@ class SinglyLinkedList {
         }
         return currentNode;
     }
+
+    set(index, value) {
+        var node = this.get(index)
+        if (node) {
+            node.val = value;
+            return true;
+        }
+        return false;
+    }
 }
 
 let list = new SinglyLinkedList();
