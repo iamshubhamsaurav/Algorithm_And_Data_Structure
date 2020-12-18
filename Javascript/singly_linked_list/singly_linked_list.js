@@ -121,6 +121,19 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === this.length - 1) return this.pop();
+        if (index === 0) return this.shift();
+        let previousNode = this.get(index - 1);
+        let nodeToBeRemoved = previousNode.next;
+        let nextNode = nodeToBeRemoved.next;
+        previousNode.next = nextNode;
+        nodeToBeRemoved.next = null;
+        this.length--;
+        return nodeToBeRemoved;
+    }
 }
 
 let list = new SinglyLinkedList();
