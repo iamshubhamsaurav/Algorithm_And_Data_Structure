@@ -54,7 +54,7 @@ class DoublyLinkedList {
             nodeToRemove.next = null;
         }
         this.length--;
-        return 
+        return nodeToRemove;
     }
 
 }
