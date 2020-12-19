@@ -134,6 +134,38 @@ class SinglyLinkedList {
         this.length--;
         return nodeToBeRemoved;
     }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let prev = null;
+        for(let i = 0; i < this.length; i++) {
+            
+        }
+
+        // get(index)
+        this.head = this.tail;
+        let nextNode = this.head.next;
+        let prevNode;
+        let currentNode = this.head;
+        for(let i = 0; i < this.length - 1; i++) {
+            nextNode = currentNode.next;
+            current.next = prevNode;
+            currentNode = prevNode;
+            nextNode = currentNode;
+        }
+    }
+
+    print() {
+        let array = [];
+        let current = this.head;
+        while(current) {
+            array.push(current.val);
+            current = current.next;
+        }
+        console.log(array);
+    }
 }
 
 let list = new SinglyLinkedList();
