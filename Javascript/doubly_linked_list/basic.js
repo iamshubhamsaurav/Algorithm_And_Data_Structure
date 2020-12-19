@@ -1,6 +1,6 @@
 class Node {
     constructor(val) {
-        this.val = value;
+        this.val = val;
         this.next = null;
         this.previous = null;
     }
@@ -68,7 +68,65 @@ class DoublyLinkedList {
             this.head = newNode;
         }
         this.length++;
-        return newNode;
+        return this;
     }
 
+    // Get with while loop
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let count, currentNode;
+        if (index < this.length / 2) {
+            count = 0;
+            currentNode = this.head;
+            while(count !== index) {
+                currentNode = currentNode.next;
+                count++;
+            }
+        } else {
+            count = this.length - 1;
+            currentNode = this.tail;
+            while(index !== index) {
+                currentNode = currentNode.next;
+                count--;
+            }
+        }
+        return currentNode;
+    }
+
+    // Get with for loop
+    // get(index) {
+    //     if (index < 0 || index >= this.length) return null;
+    //     let currentNode = this.head;
+
+    //     if (index <= (this.length / 2)) {
+    //         let currentNode = this.head;
+    //         for(let i = 0; i <= this.length - 1; i++) {
+    //             if (index === i) {
+    //                 return currentNode;
+    //             }
+    //             currentNode = currentNode.next;
+    //         }
+    //     } else {
+    //         let currentNode = this.tail;
+    //         for (let i = this.length - 1; i >= 0; i--) {
+    //             if (index === i) {
+    //                 return currentNode;
+    //             }
+    //             currentNode = currentNode.previous;
+    //         }
+    //     }
+    // }
+
 }
+
+let list = new DoublyLinkedList();
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
+// console.log(list)
+console.log(list.get(4))
+console.log(list.get(-1))
+// console.log("################################")
+console.log(list.get(2))
